@@ -1,0 +1,58 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark theme-background ie-nav" *ngIf="!getUser()" [containerInside]="false">
+  <logo>
+    <a class="logo navbar-brand" href="#"><strong>LOGO</strong></a>
+  </logo>
+  <links>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item waves-light" [ngClass]="{'active': home_active}" mdbWavesEffect>
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item waves-light" [ngClass]="{'active': member_active}" mdbWavesEffect>
+        <a class="nav-link" href="/register">Become a member</a>
+      </li>
+      <li class="nav-item waves-light" [ngClass]="{'active': testimonial_active}" mdbWavesEffect>
+        <a class="nav-link" href="/testimonials">Testimonials</a>
+      </li>
+      <li class="nav-item waves-light" [ngClass]="{'active': about_active}" mdbWavesEffect>
+        <a class="nav-link" href="/about-us">About us</a>
+      </li>
+      <li class="nav-item waves-light" [ngClass]="{'active': contact_active}" mdbWavesEffect>
+        <a class="nav-link" href="/contact-us">Contact us</a>
+      </li>
+    </ul>
+  </links>
+</mdb-navbar>
+<!-- Dashboard Navbar -->
+<mdb-navbar #navid SideClass="navbar navbar-toggleable-md navbar-expand-lg double-nav" *ngIf="getUser()" [containerInside]="false">
+
+  <navlinks class="navbar-container">
+    <!-- SideNav slide-out button -->
+    <div class="float-left">
+      <a (click)="sidenav.show()" class="button-collapse hidden-nav-button-collapse">
+        <i class="fa fa-bars color-b fa-2x"></i>
+      </a>
+    </div>
+    <!--/. SideNav slide-out button -->
+  </navlinks>
+
+  <mdb-navbar-brand>
+    <!-- Breadcrumb-->
+    <div class="breadcrumbs breadcrumbs-hidden-nav breadcrumb-dn mr-auto">
+      <p>Material Design for Bootstrap</p>
+    </div>
+    <!--/. Breadcrumb-->
+  </mdb-navbar-brand>
+
+  <navlinks>
+    <ul class="nav navbar-nav nav-flex-icons ml-auto ie-double-nav ie-hidden-double-nav">
+      <li class="nav-item">
+        <a class="nav-link waves-light" (click)="showAlert()" mdbWavesEffect>
+          <span class=""><i class="fa fa-bell-o fa-2x text-black-50" aria-hidden="false"></i></span>
+          <span class="badge badge-pill bg-color-b a-count">{{getAlertCount()}}</span>
+        </a>
+      </li>
+    </ul>
+  </navlinks>
+</mdb-navbar>
+<!--/. Navbar -->
+<app-alerts *ngIf="alert" #alert></app-alerts>

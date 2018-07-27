@@ -1,0 +1,46 @@
+//.row {
+//  min-height:82vh;
+//}
+
+.first-slant{
+  background: #02B0BB;
+  position: absolute;
+  height: 100% !important;
+  width: 50% !important;
+  -webkit-clip-path: polygon(0 182px, 1742px -59px, 1600px 100%, 0% 100%);
+  clip-path: polygon(0 182px, 1742px -59px, 1600px 100%, 0% 100%);
+}
+.second-slant{
+  height: 100% !important;
+  position: absolute;
+  right: 0;
+  width: 60% !important;
+  -webkit-clip-path: polygon(0 182px, 1742px -59px, 1600px 100%, 0% 100%);
+  clip-path: polygon(0 182px, 1742px -59px, 1600px 100%, 0% 100%);
+}
+
+.flip-horizontal {
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -ms-filter: fliph; /*IE*/
+  filter: fliph; /*IE*/
+}
+.ribbon{
+  height: 183px;
+  width:100%;
+  bottom:0;
+  position:absolute;
+}
+
+hr{
+  background: #02B0BB;
+  display: inline-block;
+  height:10px;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  color:#02B0BB;
+}

@@ -1,0 +1,40 @@
+.alert-container{
+  position: absolute !important;
+  top: 55px;
+  right: 25px;
+  width: 40%;
+  font-size: 0.5rem !important;
+  z-index: 999999999;
+}
+.alert-container .media-body p{
+  font-size: 0.8rem !important;
+}
+.card-up{
+  background-color: #02B0BB !important;
+  height: 35px;
+}
+.card-body{
+  overflow-y: scroll !important;
+}
+img{
+  width: 70px !important;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

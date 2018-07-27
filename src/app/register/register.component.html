@@ -1,0 +1,2 @@
+<app-register-start *ngIf="!user.reg_state" [user]="user"></app-register-start>
+<app-register-basic *ngIf="user.reg_state == 1" [user]="user"></app-register-basic>

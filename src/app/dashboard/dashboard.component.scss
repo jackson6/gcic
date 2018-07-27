@@ -1,0 +1,51 @@
+.full-height{
+  background-color: #e6ebf1;
+}
+.content{
+  background-color: white;
+  margin: auto;
+  width: 100%;
+  position: relative;
+}
+.cs-lg{
+  height: 260px;
+}
+.cs-md{
+  height: 170px;
+}
+.content-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.row{
+  padding-top: 15px;
+}
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.padding-right {
+  padding-right: 10px !important;
+}
+.padding-left {
+  padding-left: 5px !important;
+}
+.hr-1{
+  background: #02B0BB;
+  height: 2px;
+}
+.top-text{
+  color: #707070;
+  font-size: 1em;
+}
+.top-text-md{
+  color: #707070;
+  font-size: 0.9em;
+}
+.d-text{
+  font-size: 1.5em;
+  color: #707070;
+}

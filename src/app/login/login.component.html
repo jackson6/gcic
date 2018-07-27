@@ -1,0 +1,100 @@
+<div class="full-height">
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-md-5 theme-background pb-3 pr-0 pl-0 z-depth-5 z-index-1">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 mt-3">
+              <div class="flex-center">
+                <a href="/login">
+                  <input type="button" class="btn w-20 btn-sm btn-white waves-light ml-auto mr-auto" value="Login" mdbWavesEffect>
+                </a>
+                <a href="/register">
+                  <input type="button" class="btn w-20 btn-sm btn-deep-orange waves-light mr-auto ml-auto" value="Register" mdbWavesEffect>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="row h-100">
+            <!-- Login form -->
+            <div class="col-md-12 mt-3">
+              <div class="container-fluid mt-0 mb-0">
+                <form [formGroup]="loginForm">
+                  <p class="mb-5">Sign In</p>
+
+                  <div class="md-form mb-5 mt-5">
+                    <input type="text" formControlName="loginFormEmail" id="loginForm-email" class="form-control" placeholder="johndoe@gmail.com" mdbInputDirective>
+                    <label for="loginForm-email">Your email</label>
+                  </div>
+
+                  <div class="md-form mb-5">
+                    <input type="password" formControlName="loginFormPass" id="loginForm-pass" class="form-control" placeholder="12345678" mdbInputDirective>
+                    <label for="loginForm-pass">Your password</label>
+                  </div>
+
+                  <div class="text-center mt-5">
+                    <input type="button" class="btn pt-2 pb-2 mb-3 w-100 login-btn btn-lg waves-light" value="Sign in" mdbWavesEffect>
+                  </div>
+                  <a (click)="style.show()"><u>Forgot password?</u></a>
+                  <div class="mt-5">
+                    <a>Or sign in with</a>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-md-12">
+                      <button class="btn btn-fb waves-light w-100 btn-rounded" mdbWavesEffect><i class="fa fa-facebook"></i> Facebook</button>
+                      <button class="btn btn-gle w-100 waves-light btn-rounded" mdbWavesEffect> <i class="fa fa-google-plus"></i> Google</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- Login form -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 ml-0 pl-0 z-index-2">
+        <div class="d-flex h-100">
+          <div class="view justify-content-center align-self-center">
+            <img src="../../assets/img/sai-de-silva-27290-unsplash.jpg" class="img-fluid justify-content-center align-self-center" alt="Responsive image">
+            <div class="mask flex-center rgba-white-light">
+              <div class="text-center">
+                <p class="black-text font-weight-bold">Don't have an account?</p>
+                <a href="/register">
+                 <input type="button" class="btn pt-2 pb-2 signup-btn btn-sm" value="Sign up" mdbWavesEffect>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div mdbModal #style="mdb-modal" class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="heading lead">Forget Password</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="style.hide()">
+          <span aria-hidden="true" class="white-text">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <i *ngIf="forgetSuccess" class="fa fa-check fa-4x mb-3 animated rotateIn"></i>
+          <p>Please enter your Email address used to register on this website. We will send a link to reset your password to your email address</p>
+          <form [formGroup]="loginForm">
+            <div class="md-form">
+              <input type="text" formControlName="loginFormEmail" id="forgetForm-email" class="form-control" placeholder="johndoe@gmail.com" mdbInputDirective>
+              <label for="forgetForm-email">Your email</label>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <a type="button" class="btn btn-outline-secondary" data-dismiss="modal" (click)="style.hide()" mdbWavesEffect>Cancel</a>
+        <a type="button" class="btn btn-primary waves-light" mdbWavesEffect>Send Email<i class="fa fa-mail-forward ml-1 white-text"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+<div class="full-height">
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-md-6 ml-0 mr-0 pl-0 pr-0 z-index-2">
+        <div class="d-flex h-100">
+          <div class="view justify-content-center align-self-center">
+            <img src="../../assets/img/sai-de-silva-27290-unsplash.jpg" class="img-fluid justify-content-center align-self-center" alt="Responsive image">
+            <div class="mask flex-center rgba-white-light">
+              <div class="text-center">
+                <p class="black-text font-weight-bold">Already have an account?</p>
+                <a href="/login">
+                  <input type="button" class="btn pt-2 pb-2 signin-btn btn-sm" value="Sign in" mdbWavesEffect>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 theme-background pb-3 pr-0 pl-0 z-depth-5 z-index-1 animated zoomInUp">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="flex-center">
+                <h1>LOGO</h1>
+                <!--<a href="/login">-->
+                <!--<input type="button" class="btn w-20 btn-sm btn-white waves-light ml-auto mr-auto" value="Login" mdbWavesEffect>-->
+                <!--</a>-->
+                <!--<a href="/register">-->
+                <!--<input type="button" class="btn w-20 btn-sm btn-deep-orange waves-light mr-auto ml-auto" value="Register" mdbWavesEffect>-->
+                <!--</a>-->
+              </div>
+            </div>
+          </div>
+          <div class="row h-100">
+            <!-- Register form -->
+            <div class="col-md-12 mt-3">
+              <div class="container-fluid mt-0 mb-0">
+                <form name="register-form">
+                  <p>Sign up</p>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="md-form">
+                        <input type="email" [(ngModel)]="user.email" name="email" id="registerForm-email" class="form-control" placeholder="johndoe@gmail.com" mdbInputDirective>
+                        <label for="registerForm-email">Your email</label>
+                      </div>
+
+                      <div class="md-form">
+                        <input type="password" [(ngModel)]="user.password" name="pass" id="registerForm-pass" class="form-control" placeholder="12345678" mdbInputDirective>
+                        <label for="registerForm-pass">Your password</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="md-form">
+                        <input type="text" [(ngModel)]="user.first_name" name="fname" id="registerForm-fname" class="form-control" placeholder="John" mdbInputDirective>
+                        <label for="registerForm-fname">First Name</label>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="md-form">
+                        <input type="text" [(ngModel)]="user.last_name" name="lname" id="registerForm-lname" class="form-control" placeholder="Doe" mdbInputDirective>
+                        <label for="registerForm-lname">Last Name</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="text-center">
+                        <input type="button" class="btn pt-2 pb-2 mb-3 w-100 login-btn btn-lg waves-light" value="Sign Up" mdbWavesEffect (click)="next()">
+                      </div>
+                      <a class="">Or sign up with</a>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-md-12">
+                      <button class="btn btn-fb waves-light w-100 btn-rounded" mdbWavesEffect><i class="fa fa-facebook"></i> Facebook</button>
+                      <button class="btn btn-gle w-100 waves-light btn-rounded" mdbWavesEffect> <i class="fa fa-google-plus"></i> Google</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- Register form -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

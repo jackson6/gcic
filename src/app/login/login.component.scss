@@ -1,0 +1,66 @@
+.bg-color{
+  background-color: #2BBBAD;
+}
+.container{
+  padding-top: 50px;
+  color: #ffffff;
+  font-family: "Segoe UI";
+}
+.login-btn{
+  border-radius: 0px;
+  color: #ff7043 ;
+  background: white;
+  margin: 0px;
+}
+.signup-btn{
+  border: 2px solid black;
+  color: #000000 ;
+  background: transparent;
+}
+.btn.btn-lg {
+  font-size: 1.2rem;
+}
+.z-index-1{
+  z-index: 1;
+}
+.z-index-2{
+  z-index: 2;
+}
+.full-height{
+  background-image: url(../../assets/img/spiral-bg.png);
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.md-form > input{
+  border: 1px solid white !important;
+  padding-left: 10px;
+  color: white;
+}
+
+.md-form label {
+  color: #ffffff !important;
+  transform: translateY(-170%);
+  -webkit-transform: translateY(-170%);
+}
+
+.md-form label.active {
+  color: #757575;
+  transform: translateY(-175%);
+  -webkit-transform: translateY(-175%);
+}
+form p {
+  font-size: xx-large;
+}
+.rgba-white-light {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+.modal-body {
+  padding-bottom: 0px !important;
+}
+.modal-footer {
+  padding-top: 0px !important;
+}
+.modal-body .md-form[_ngcontent-c3] > input[_ngcontent-c3]{
+  border-color: black !important;
+}
