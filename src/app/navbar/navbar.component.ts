@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {AlertService} from './alert.service';
-import {Alert1Service} from './alert1.service';
+import {AlertService} from './alerts/alert.service';
+import {Alert1Service} from './alerts/alert1.service';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,8 +19,10 @@ export class NavbarComponent implements OnInit {
   login_active = false;
   route: any;
   alert = false;
+  forgetSuccess = false;
 
-  constructor(private _route: ActivatedRoute, public alertService: AlertService, public alertService1: Alert1Service) {
+  constructor(private _route: ActivatedRoute, public alertService: AlertService,
+              public alertService1: Alert1Service, public auth: AuthService) {
     this.route = _route;
 
     alertService.event.subscribe((data) => {
@@ -37,10 +40,6 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  getUser() {
-    return true;
-  }
-
   getAlertCount() {
     return 2;
   }
@@ -52,6 +51,10 @@ export class NavbarComponent implements OnInit {
       this.alert = true;
     }
     this.alertService1.publish(this.alert);
+  }
+
+  logout() {
+    this.auth.logout();
   }
 
 }

@@ -1,6 +1,6 @@
 import {Component, ElementRef, HostListener, OnInit} from '@angular/core';
-import {AlertService} from '../alert.service';
-import {Alert1Service} from '../alert1.service';
+import {AlertService} from './alert.service';
+import {Alert1Service} from './alert1.service';
 
 @Component({
   selector: 'app-alerts',

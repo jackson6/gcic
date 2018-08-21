@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA  } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,17 +23,18 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BasicComponent } from './register/basic/basic.component';
 import { StartComponent } from './register/start/start.component';
 
-import { NavbarModule, WavesModule } from 'angular-bootstrap-md';
 import { AlertsComponent } from './navbar/alerts/alerts.component';
+import {AuthGuard} from './auth.guard';
+import { ChatComponent } from './chat/chat.component';
+import { environment } from '../environments/environment';
+import { Basic1Component } from './register/basic1/basic1.component';
+import { Basic2Component } from './register/basic2/basic2.component';
+import { CompletedComponent } from './register/completed/completed.component';
+import { MessageComponent } from './chat/message/message.component';
+import { UserComponent } from './chat/user/user.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import {ChatService} from './chat/chat.service';
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyBuUlhtCyLpSJPfmLDnFNYe6TAHbYDJ7mg',
-  authDomain: 'invest-ff3f4.firebaseapp.com',
-  databaseURL: 'https://invest-ff3f4.firebaseio.com',
-  projectId: 'invest-ff3f4',
-  storageBucket: '',
-  messagingSenderId: '798199281515'
-};
 
 @NgModule({
   declarations: [
@@ -46,25 +48,33 @@ const firebaseConfig = {
     AboutComponent,
     ContactComponent,
     PaymentComponent,
+    AlertsComponent,
     DashboardComponent,
     BasicComponent,
     StartComponent,
-    AlertsComponent
+    ChatComponent,
+    Basic1Component,
+    Basic2Component,
+    CompletedComponent,
+    MessageComponent,
+    UserComponent
   ],
   imports: [
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,
-    MDBBootstrapModule.forRoot(),
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NavbarModule,
-    WavesModule,
-    NgxStripeModule.forRoot('pk_test_sMWQj8OXfAe1S5VmvchUBsVh'),
+    HttpClientModule,
+    NgxStripeModule.forRoot(environment.stripeKey),
+    MDBBootstrapModule.forRoot(),
+    AngularFireAuthModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
+    AuthGuard,
+    ChatService
   ],
   bootstrap: [AppComponent]
 })

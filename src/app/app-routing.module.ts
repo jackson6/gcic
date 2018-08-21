@@ -8,6 +8,9 @@ import {ContactComponent} from './contact/contact.component';
 import {AboutComponent} from './about/about.component';
 import {PaymentComponent} from './payment/payment.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import { AuthGuard } from './auth.guard';
+import {BasicComponent} from './register/basic/basic.component';
+import {ChatComponent} from './chat/chat.component';
 
 const routes: Routes = [
   {
@@ -16,7 +19,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canLoad: [AuthGuard]
   },
   {
     path: 'register',
@@ -31,6 +35,10 @@ const routes: Routes = [
     component: ContactComponent
   },
   {
+    path: 'chat',
+    component: ChatComponent
+  },
+  {
     path: 'testimonials',
     component: TestimonialsComponent
   },
@@ -40,7 +48,8 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '',

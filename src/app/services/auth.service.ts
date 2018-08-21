@@ -1,27 +1,18 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {User} from '../models/user';
-import {Observable} from 'rxjs';
+import {AngularFireAuth} from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+import {Router} from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private BASE_URL = 'http://localhost:9000';
+  private user: Observable<firebase.User>;
 
-  constructor(private http: HttpClient) { }
-
-  getToken(): string {
-    return localStorage.getItem('token');
+  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
+    this.user = _firebaseAuth.authState;
   }
 
-  logIn(email: string, password: string): Observable<any> {
-    const url = `${this.BASE_URL}/login`;
-    return this.http.post<User>(url, {email, password});
-  }
 
-  signUp(email: string, password: string): Observable<User> {
-    const url = `${this.BASE_URL}/register`;
-    return this.http.post<User>(url, {email, password});
-  }
 }

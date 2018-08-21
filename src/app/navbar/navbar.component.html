@@ -1,4 +1,4 @@
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark theme-background ie-nav" *ngIf="!getUser()" [containerInside]="false">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark theme-background ie-nav" *ngIf="!auth.isLoggedIn" [containerInside]="false">
   <logo>
     <a class="logo navbar-brand" href="#"><strong>LOGO</strong></a>
   </logo>
@@ -23,12 +23,12 @@
   </links>
 </mdb-navbar>
 <!-- Dashboard Navbar -->
-<mdb-navbar #navid SideClass="navbar navbar-toggleable-md navbar-expand-lg double-nav" *ngIf="getUser()" [containerInside]="false">
+<mdb-navbar #navid SideClass="navbar navbar-toggleable-md navbar-expand-lg double-nav" *ngIf="auth.isLoggedIn" [containerInside]="false">
 
   <navlinks class="navbar-container">
     <!-- SideNav slide-out button -->
     <div class="float-left">
-      <a (click)="sidenav.show()" class="button-collapse hidden-nav-button-collapse">
+      <a (click)="sideNav.show()" class="button-collapse hidden-nav-button-collapse">
         <i class="fa fa-bars color-b fa-2x"></i>
       </a>
     </div>
@@ -51,8 +51,47 @@
           <span class="badge badge-pill bg-color-b a-count">{{getAlertCount()}}</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" (click)="logout()" mdbWavesEffect>
+          <span class=""><i class="fa fa-sign-out-alt fa-2x text-black-50" aria-hidden="false"></i></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" (click)="logout()" mdbWavesEffect>
+          <span class=""><i class="fa fa-sign-out fa-2x text-black-50" aria-hidden="false"></i></span>
+        </a>
+      </li>
     </ul>
   </navlinks>
 </mdb-navbar>
+<div mdbModal #sideNav="mdb-modal" class="modal fade left" tabindex="-1" role="dialog" aria-labelledby="side nav" aria-hidden="true"  [config]="{backdrop: false, ignoreBackdropClick: true}">
+  <div class="modal-dialog modal-full-height modal-left" role="document">
+    <div class="modal-content theme-background text-white">
+      <div class="modal-header">
+        <p class="heading lead">Logo</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="sideNav.hide()">
+          <span aria-hidden="true" class="white-text">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <i *ngIf="forgetSuccess" class="fa fa-check fa-4x mb-3 animated rotateIn"></i>
+          <p>Please enter your Member ID you received after registering on this website. We will send a link to reset your password to your email address</p>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <!--Facebook-->
+        <a type="button" class="btn-floating btn-small waves-light" mdbWavesEffect><i class="fa fa-facebook"></i></a>
+
+        <!--Twitter-->
+        <a type="button" class="btn-floating btn-small waves-light" mdbWavesEffect><i class="fa fa-twitter"></i></a>
+
+        <!--Instagram-->
+        <a type="button" class="btn-floating btn-small waves-light" mdbWavesEffect><i class="fa fa-instagram"></i></a>
+
+      </div>
+    </div>
+  </div>
+</div>
 <!--/. Navbar -->
-<app-alerts *ngIf="alert" #alert></app-alerts>
+<app-alerts *ngIf="auth.isLoggedIn && alert" #alert></app-alerts>
